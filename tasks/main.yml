@@ -1,0 +1,17 @@
+---
+
+
+- include_tasks: "{{ ansible_distribution }}-install.yml"
+  when: ansible_distribution == "Ubuntu" or ansible_distribution == "CentOS"
+  tags:
+    - install
+
+- name: Ensure Docker is started and enabled at boot.
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  when: ansible_virtualization_type != "docker"
+
+- include: docker-compose.yml
+  when: docker_install_compose
