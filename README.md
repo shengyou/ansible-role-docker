@@ -25,7 +25,7 @@ docker_package_state: present
 
 # Docker Compose options.
 docker_install_compose: true
-docker_compose_version: "1.13.0"
+docker_compose_version: "1.23.0"
 docker_compose_path: /usr/local/bin/docker-compose
 
 # Used only for Debian/Ubuntu. Switch 'stable' to 'edge' if needed.
